@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", getData);
+
 
 function getData(){
     let get=document.getElementById("data");
@@ -54,13 +54,18 @@ function deleteData(id){
     .then((data)=>console.log(data));
 }
 
-function updateData(tid){
-    document.getElementById("ID").value=tid;
-    var name=document.getElementById("NAME").value
+async function updateData(tid){
+   
+     var name=document.getElementById("NAME").value
+     alert(`enter the new values of ${tid}`);
+     document.getElementById("ID").value=tid;
      
-    fetch(`http://localhost:3000/users/${tid}`,
+    await fetch(`http://localhost:3000/users/${tid}`,
         {
             method:'PATCH',
+            headers: {
+      "Content-Type" : "application/json"
+    },
             body:JSON.stringify(
                 {
                     "name":name
