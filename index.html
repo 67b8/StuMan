@@ -6,28 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="App.js"></script>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table,
+        tr,
+        td {
+            /* border:1px solid; */
+            font-size: 20px;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        thead {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input{
+            font-size: 20px;
+        }
+        button{
+            font-size: 20px;
+        }
+    </style>
 </head>
 
-<body> 
-    <h1>STUDENT MANAGEMENT</h1>
-    <div>
-        <input type="text" id="ID" required>
-        <input type="text" id="NAME" required>
+<body>
+
+    <h1 style="text-align: center;">STUDENT MANAGEMENT</h1>
+    <div style="text-align: center;">
+        <input type="text" id="ID" placeholder="Id" required>
+        <input type="text" id="NAME" placeholder="Name">
         <button type="submit" onclick="addData()">ENTER</button>
     </div>
-    <div>
-        <table>
+    <div  style="overflow-x:auto;">
+        <table style=" margin-top: 20px;">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>NAME</td>
-
+                    <td>
+                        <h4>ID</h4>
+                    </td>
+                    <td>
+                        <h4>NAME</h4>
+                    </td>
+                    <td></td>
                 </tr>
 
             </thead>
+
             <tbody id="data"></tbody>
         </table>
     </div>
+    <script>getData()</script>
 </body>
 
 </html>
